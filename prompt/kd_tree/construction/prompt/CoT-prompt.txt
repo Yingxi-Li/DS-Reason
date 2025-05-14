@@ -1,0 +1,11 @@
+Q: Suppose you have an empty KD-tree. Construct a KD-tree with the following points: 
+[[35, 21, 74], [43, 73, 2], [57, 92, 48], [24, 40, 12], [1, 42, 98]]
+What's the final state of the KD-tree? 
+A: 
+First, partition by the first axis. The median is 35, therefore set [35, 21, 74] as the root. We have [24, 40, 12], [1, 42, 98] in the left sub-tree and [43, 73, 2], [57, 92, 48] in the right sub tree. 
+Look at the left subtree. Now split by the second axis. According to the rule given in the prompt. The median of 40 and 42 is 42. Insert [1, 42, 98] as the left child of the root [35, 21, 74]. 
+Recursively look at the left subtree of [1, 42, 98], which contains [24, 40, 12], therefore will be its left child. It's right child is none. 
+Now look at the right subtree of the root. Split by the second axis. The median is 92, therefore root's right child is [57, 92, 48]. 
+Recursively look at the left subtree of [57, 92, 48], which contains only one node [43, 73, 2]. Therefore, it wil be the left child of [57, 92, 48]. The right child of [57, 92, 48] is none. 
+We have finished constructin the tree. Now we return the pre-order traversal of the tree. To complete a preorder traversal, start with the root node, then look at the left tree, and finally the right tree recursively. 
+Therefore, the pre-order traversal of this tree is: [[35, 21, 74] , [1, 42, 98], [24, 40, 12],[57, 92, 48],[43, 73, 2]]
